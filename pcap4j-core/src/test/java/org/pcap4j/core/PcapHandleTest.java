@@ -146,7 +146,7 @@ public class PcapHandleTest {
   public void testGetOriginalLength() throws Exception {
     assertNull(ph.getOriginalLength());
     Packet packet = ph.getNextPacket();
-    assertEquals(new Integer(74), ph.getOriginalLength());
+    assertEquals(Integer.valueOf(74), ph.getOriginalLength());
     assertEquals(packet.length(), ph.getOriginalLength().intValue());
   }
 
@@ -154,7 +154,7 @@ public class PcapHandleTest {
   public void testGetOriginalLengthEx() throws Exception {
     assertNull(ph.getOriginalLength());
     Packet packet = ph.getNextPacketEx();
-    assertEquals(new Integer(74), ph.getOriginalLength());
+    assertEquals(Integer.valueOf(74), ph.getOriginalLength());
     assertEquals(packet.length(), ph.getOriginalLength().intValue());
   }
 
@@ -162,7 +162,7 @@ public class PcapHandleTest {
   public void testGetOriginalLengthRaw() throws Exception {
     assertNull(ph.getOriginalLength());
     byte[] packet = ph.getNextRawPacket();
-    assertEquals(new Integer(74), ph.getOriginalLength());
+    assertEquals(Integer.valueOf(74), ph.getOriginalLength());
     assertEquals(packet.length, ph.getOriginalLength().intValue());
   }
 
@@ -170,7 +170,7 @@ public class PcapHandleTest {
   public void testGetOriginalLengthRawEx() throws Exception {
     assertNull(ph.getOriginalLength());
     byte[] packet = ph.getNextRawPacketEx();
-    assertEquals(new Integer(74), ph.getOriginalLength());
+    assertEquals(Integer.valueOf(74), ph.getOriginalLength());
     assertEquals(packet.length, ph.getOriginalLength().intValue());
   }
 
@@ -182,7 +182,7 @@ public class PcapHandleTest {
         new PacketListener() {
           @Override
           public void gotPacket(Packet packet) {
-            assertEquals(new Integer(74), ph.getOriginalLength());
+            assertEquals(Integer.valueOf(74), ph.getOriginalLength());
             assertEquals(packet.length(), ph.getOriginalLength().intValue());
           }
         });
@@ -196,7 +196,7 @@ public class PcapHandleTest {
         new RawPacketListener() {
           @Override
           public void gotPacket(byte[] packet) {
-            assertEquals(new Integer(74), ph.getOriginalLength());
+            assertEquals(Integer.valueOf(74), ph.getOriginalLength());
             assertEquals(packet.length, ph.getOriginalLength().intValue());
           }
         });
